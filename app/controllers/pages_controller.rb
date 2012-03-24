@@ -6,10 +6,10 @@ class PagesController < ApplicationController
   end
   
   def hacker_list
-    @hackers = User.hackers
+    @hackers = User.hackers.page params[:page]
   end
   
   def biz_monkey_list
-    @monkeys = User.biz_monkeys
+    @monkeys = User.biz_monkeys.page params[:page]
   end
 end

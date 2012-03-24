@@ -1,6 +1,7 @@
 %p Hackers UNite
 
 %p
+  = paginate @hackers
   -@hackers.each do |hacker|
     =link_to hacker do
       #{hacker.email} - #{hacker.hacker_score}
