@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
   validates_presence_of  :role
   validates_inclusion_of :role, in: ROLES
   
+  
   # All Users 
   def role? (role)
     self.role.to_sym == role
@@ -63,7 +64,7 @@ class User < ActiveRecord::Base
   
   # Class Functions
   def self.hackers
-    where(role: "hacker")
+    where(role: "hacker").order('hacker_score DESC')
   end
   
   def self.biz_monkeys
@@ -74,8 +75,10 @@ class User < ActiveRecord::Base
   # Hacker Functions
   
   def calculate_hacker_score
-    #TODO: write this!
-    0
+    score = 0
+    achievements.each { |achievement| score = score + achievement.points }
+    self.hacker_score = score
+    save!
   end 
 
   def calculate_hacker_rate

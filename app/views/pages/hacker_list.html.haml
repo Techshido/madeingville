@@ -1,5 +1,7 @@
-Hackers UNite
+%p Hackers UNite
 
--@hackers.each do |hacker|
-  =link_to hacker.email, hacker
-  %br
+%p
+  -@hackers.each do |hacker|
+    =link_to hacker do
+      #{hacker.email} - #{hacker.hacker_score}
+    %br

@@ -34,4 +34,13 @@ class Achievement < ActiveRecord::Base
   validates_inclusion_of  :category, in: CATEGORIES
   
   attr_accessible :category, :description
+  
+  after_save    :calculate_hacker_score
+  after_destroy :calculate_hacker_score
+  
+  delegate :calculate_hacker_score, to: :hacker
+  
+  def points
+    points = POINTS_LISTING[category.to_sym][:points]
+  end
 end
