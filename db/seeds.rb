@@ -27,8 +27,7 @@
 
 # Make the hackers
 def make_hackers
-  current = 1
-  100.times do 
+  100.times do |current|
 
     email = "hacker#{current}#{@email_suffix}"
 
@@ -54,17 +53,15 @@ def make_hackers
 
       t.save!
     end
-
-    current = current + 1
-
   end
 end
 
 # Make the BMs
 def make_biz_monkies
-  current = 1
-  30.times do
+  30.times do |current|
+
     email = "bizmonkey#{current}#{@email_suffix}"
+
     User.find_or_initialize_by_email(email).tap do |t|
       t.password = @passwd
       t.password_confirmation = @passwd
@@ -86,7 +83,6 @@ def make_biz_monkies
       t.save!
     end
   end
-  current = current + 1
 end
 
 namespace :db do 
