@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324155946) do
+ActiveRecord::Schema.define(:version => 20120324163205) do
+
+  create_table "technologies", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "technologies", ["type"], :name => "index_technologies_on_type"
+  add_index "technologies", ["user_id"], :name => "index_technologies_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",       :null => false

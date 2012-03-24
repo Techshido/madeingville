@@ -26,6 +26,12 @@
 #
 
 class User < ActiveRecord::Base
+  # Hacker Relationships
+  has_many :interests, class_name: 'Technology', dependent: :destroy
+  
+  # Biz Monkey Relationships
+  has_many :looking_for, class_name: 'Technology', dependent: :destroy
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -33,11 +39,11 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me
-  validates       :first_name, :last_name, :presence => true, :length => { :maximum => 50 }
+  validates       :first_name, :last_name, presence: true, length: { maximum: 50 }
   
   ROLES = %W[hacker biz_monkey legit_startup]
   validates_presence_of  :role
-  validates_inclusion_of :role, :in => ROLES
+  validates_inclusion_of :role, in: ROLES
   
   # All Users 
   def role? (role)
