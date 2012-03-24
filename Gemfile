@@ -33,7 +33,7 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false  
-  gem 'factory_girl_rails'
+  # gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'spork'
   gem 'guard-spork'
