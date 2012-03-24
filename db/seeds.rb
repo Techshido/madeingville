@@ -39,8 +39,13 @@ def make_hackers
       t.first_name = @first_names.shuffle.first
       t.last_name = @last_names.shuffle.first
 
-      t.interests = [Technology.new(user_id: t.id, type: @technologies.shuffle.first)]
-      t.achievements = [Achievement.new(hacker_id: t.id, type: @achievements.shuffle.first)]
+      tech = @technologies.shuffle
+      achieve = @achievements.shuffle
+
+      t.interests = [ Technology.new(user_id: t.id, type: tech.first),
+                      Technology.new(user_id: t.id, type: tech.second) ]
+      t.achievements = [ Achievement.new(hacker_id: t.id, type: achieve.first),
+                         Achievement.new(hacker_id: t.id, type: achieve.second) ]
       t.will_work_for = Compensation.new(hacker_id: t.id, type: @compensations.shuffle.first)
     end
 
@@ -60,8 +65,10 @@ def make_biz_monkies
       t.role = "biz_monkey"
       t.first_name = @first_names.shuffle.first
       t.last_name = @last_names.shuffle.first
-
-      t.looking_for = [Technology.new(user_id: t.id, type: @technologies.shuffle.first)]
+      
+      tech = @technologies.shuffle
+      t.looking_for = [ Technology.new(user_id: t.id, type: tech.first),
+                        Technology.new(user_id: t.id, type: tech.second) ]
       t.projects = [Project.new(biz_monkey_id: t.id, description: "Description of an awesome test project")]
     end
   end
