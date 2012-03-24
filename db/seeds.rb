@@ -77,8 +77,8 @@ def make_biz_monkies
       t.looking_for.create(skill: tech.second)
 
 
-      t.projects.create(name: "first proj", description: "Description of my first awesome test project")
-      t.projects.create(name: "next proj", description: "Description of my second awesome test project")
+      t.projects.create(name: "first proj", website: "www.google.com", description: "Description of my first awesome test project")
+      t.projects.create(name: "next proj", website: "www.facebook.com", description: "Description of my second awesome test project")
 
       t.save!
     end
