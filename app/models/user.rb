@@ -66,6 +66,11 @@ class User < ActiveRecord::Base
     where(role: "hacker")
   end
   
+  def self.biz_monkeys
+    where(role: "biz_monkey")
+  end
+  
+  
   # Hacker Functions
   
   def calculate_hacker_score

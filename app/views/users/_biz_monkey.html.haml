@@ -1,6 +1,8 @@
 %p Biz Monkey: #{@user.first_name} #{@user.last_name} #{@user.email}
 %p 
   -@projects.each do |project|
-    #{project.name}, #{project.website}, {project.description}
+    #{project.name}, #{project.website}, #{project.description}
+    %br
   -@looking_for.each do |skill|
     #{skill.skill} #{skill.description}
+    %br
