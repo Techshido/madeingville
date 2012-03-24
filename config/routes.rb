@@ -1,5 +1,7 @@
 Madeingville::Application.routes.draw do
   
+  devise_for :users
+
   # root to: 'whats_hot#show'
   
   # The priority is based upon order of creation:
