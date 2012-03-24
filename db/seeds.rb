@@ -23,7 +23,7 @@
 @compensations = %w[cash experience equity]
 
 @first_names = %w[paul ringo john george bob mike joe chris]
-@last_names = %w[smith jones]
+@last_names = %w[smith jones johnson williams brown davis miller]
 
 # Make the hackers
 def make_hackers
