@@ -18,7 +18,7 @@
 class Technology < ActiveRecord::Base
   belongs_to :user
   
-  TECH_STACK = %W[web_dev ios android]
+  TECH_STACK = %W[web_application web_front_end ios android graphic_design]
   
   validates_presence_of :user_id, :type
   validates_inclusion_of :type, in: TECH_STACK
