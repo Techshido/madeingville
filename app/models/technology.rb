@@ -20,9 +20,9 @@ class Technology < ActiveRecord::Base
   
   TECH_STACK = %W[web_application web_front_end ios android graphic_design]
   
-  validates_presence_of :user_id, :type
-  validates_inclusion_of :type, in: TECH_STACK
-  validates_uniqueness_of [:user_id, :type]
+  validates_presence_of :user_id, :skill
+  validates_inclusion_of :skill, in: TECH_STACK
+  validates_uniqueness_of [:user_id, :skill]
   
-  attr_accessible :type, :description
+  attr_accessible :skill, :description
 end

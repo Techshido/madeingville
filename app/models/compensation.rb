@@ -18,8 +18,8 @@ class Compensation < ActiveRecord::Base
   
   PAYMENT_METHODS = %W[cash experience equity]
   
-  validates_presence_of   :hacker_id, :type
-  validates_inclusion_of  :type, in: PAYMENT_METHODS
+  validates_presence_of   :hacker_id, :method
+  validates_inclusion_of  :method, in: PAYMENT_METHODS
   
-  attr_accessible :type
+  attr_accessible :method
 end
