@@ -20,13 +20,13 @@ class Achievement < ActiveRecord::Base
   
   # Turn into a hash that has point values
   POINTS_LISTING = {
-    employed:        50,
-    internship:      25,
-    open_source:     20,
-    live_project:    20,
-    contest:         10,
-    published_paper: 10,
-    relevant_course:  5
+    employed:        {points: 50, hint: "List each full time coding/designing/hacking positions"},
+    internship:      {points: 25, hint: "List each internships or part time coding/designing/hacking positions"},
+    open_source:     {points: 20, hint: "List each open source project you've contributed to"},
+    live_project:    {points: 20, hint: "List each project that's live right now"},
+    published_paper: {points: 15, hint: "List each published journal paper where you're listed as an author"},
+    contest:         {points: 10, hint: "List each programming contest or hackathion you've attended"},
+    relevant_course: {points:  2, hint: "List each upper level programming/engineering/design course you've taken"}
   }
   
   CATEGORIES = POINTS_LISTING.keys.map(&:to_s)
