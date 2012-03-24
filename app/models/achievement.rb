@@ -33,5 +33,7 @@ class Achievement < ActiveRecord::Base
   
   validates_presence_of   :hacker_id, :type
   validates_inclusion_of  :type, in: CATEGORIES
-  validates_uniqueness_of [:hacker_id, :type] 
+  validates_uniqueness_of [:hacker_id, :type]
+  
+  attr_accessible :type, :description
 end

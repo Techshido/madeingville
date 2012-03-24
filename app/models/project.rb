@@ -17,8 +17,8 @@
 
 class Project < ActiveRecord::Base
   belongs_to :biz_monkey, class_name: 'User'
+    
+  validates_presence_of   :biz_monkey_id, :description, :name
   
   attr_accessible :website, :description, :name
-
-  validates_presence_of   :biz_monkey_id, :description, :name
 end

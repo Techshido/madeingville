@@ -23,4 +23,6 @@ class Technology < ActiveRecord::Base
   validates_presence_of :user_id, :type
   validates_inclusion_of :type, in: TECH_STACK
   validates_uniqueness_of [:user_id, :type]
+  
+  attr_accessible :type, :description
 end
