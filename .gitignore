@@ -16,3 +16,5 @@
 *.swp
 *.swo
 .DS_Store
+
+app/models/.achievement.rb.swp
