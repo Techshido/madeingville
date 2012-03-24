@@ -2,23 +2,22 @@
 #
 # Table name: achievements
 #
-#  id          :integer         not null, primary key
-#  hacker_id   :integer
-#  type        :string(255)
-#  description :text
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
+#  id                   :integer         not null, primary key
+#  hacker_id            :integer
+#  achievement_category :string(255)
+#  description          :text
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
 #
 # Indexes
 #
-#  index_achievements_on_type       (type)
+#  index_achievements_on_type       (achievement_category)
 #  index_achievements_on_hacker_id  (hacker_id)
 #
 
 class Achievement < ActiveRecord::Base
   belongs_to :hacker, class_name: 'User'
   
-  # Turn into a hash that has point values
   POINTS_LISTING = {
     employed:        {points: 50, hint: "List each full time coding/designing/hacking positions"},
     internship:      {points: 25, hint: "List each internships or part time coding/designing/hacking positions"},
@@ -28,12 +27,11 @@ class Achievement < ActiveRecord::Base
     contest:         {points: 10, hint: "List each programming contest or hackathion you've attended"},
     relevant_course: {points:  2, hint: "List each upper level programming/engineering/design course you've taken"}
   }
-  
+
   CATEGORIES = POINTS_LISTING.keys.map(&:to_s)
   
-  validates_presence_of   :hacker_id, :type
-  validates_inclusion_of  :type, in: CATEGORIES
-  validates_uniqueness_of [:hacker_id, :type]
+  validates_presence_of   :hacker_id, :category
+  validates_inclusion_of  :category, in: CATEGORIES
   
-  attr_accessible :type, :description
+  attr_accessible :category, :description
 end

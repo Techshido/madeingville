@@ -19,6 +19,7 @@
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #  hacker_score           :integer         default(0)
+#  contact_me             :boolean
 #
 # Indexes
 #
@@ -60,5 +61,20 @@ class User < ActiveRecord::Base
     end
   end
   
+  # Class Functions
+  def self.hackers
+    where(role: "hacker")
+  end
   
+  # Hacker Functions
+  
+  def calculate_hacker_score
+    #TODO: write this!
+    0
+  end 
+
+  def calculate_hacker_rate
+    #TODO: write this!
+    0
+  end
 end

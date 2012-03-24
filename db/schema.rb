@@ -11,22 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324194704) do
+ActiveRecord::Schema.define(:version => 20120324205615) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "hacker_id"
-    t.string   "type"
+    t.string   "achievement_category"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
+  add_index "achievements", ["achievement_category"], :name => "index_achievements_on_type"
   add_index "achievements", ["hacker_id"], :name => "index_achievements_on_hacker_id"
-  add_index "achievements", ["type"], :name => "index_achievements_on_type"
 
   create_table "compensations", :force => true do |t|
     t.integer  "hacker_id"
-    t.string   "type"
+    t.string   "method"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(:version => 20120324194704) do
 
   create_table "technologies", :force => true do |t|
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "skill"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "technologies", ["type"], :name => "index_technologies_on_type"
+  add_index "technologies", ["skill"], :name => "index_technologies_on_type"
   add_index "technologies", ["user_id"], :name => "index_technologies_on_user_id"
 
   create_table "users", :force => true do |t|
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20120324194704) do
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
     t.integer  "hacker_score",           :default => 0
+    t.boolean  "contact_me"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

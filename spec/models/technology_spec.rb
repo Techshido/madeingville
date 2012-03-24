@@ -4,14 +4,14 @@
 #
 #  id          :integer         not null, primary key
 #  user_id     :integer
-#  type        :string(255)
+#  skill       :string(255)
 #  description :text
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
 # Indexes
 #
-#  index_technologies_on_type     (type)
+#  index_technologies_on_type     (skill)
 #  index_technologies_on_user_id  (user_id)
 #
 

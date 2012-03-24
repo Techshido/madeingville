@@ -4,7 +4,7 @@
 #
 #  id         :integer         not null, primary key
 #  hacker_id  :integer
-#  type       :string(255)
+#  method     :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
@@ -18,8 +18,8 @@ class Compensation < ActiveRecord::Base
   
   PAYMENT_METHODS = %W[cash experience equity]
   
-  validates_presence_of   :hacker_id, :type
-  validates_inclusion_of  :type, in: PAYMENT_METHODS
+  validates_presence_of   :hacker_id, :method
+  validates_inclusion_of  :method, in: PAYMENT_METHODS
   
-  attr_accessible :type
+  attr_accessible :method
 end
