@@ -19,9 +19,19 @@ class Achievement < ActiveRecord::Base
   belongs_to :hacker, class_name: 'User'
   
   # Turn into a hash that has point values
-  COOL_SHIT = %W[internship open_source real_world contest published_paper class]
+  POINTS_LISTING = {
+    employed:        50,
+    internship:      25,
+    open_source:     20,
+    live_project:    20,
+    contest:         10,
+    published_paper: 10,
+    relevant_course:  5
+  }
+  
+  CATEGORIES = POINTS_LISTING.keys.map(&:to_s)
   
   validates_presence_of   :hacker_id, :type
-  validates_inclusion_of  :type, in: COOL_SHIT
+  validates_inclusion_of  :type, in: CATEGORIES
   validates_uniqueness_of [:hacker_id, :type] 
 end
