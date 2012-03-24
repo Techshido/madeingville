@@ -31,9 +31,8 @@ class Achievement < ActiveRecord::Base
   
   CATEGORIES = POINTS_LISTING.keys.map(&:to_s)
   
-  validates_presence_of   :hacker_id, :type
-  validates_inclusion_of  :type, in: CATEGORIES
-  validates_uniqueness_of [:hacker_id, :type]
+  validates_presence_of   :hacker_id, :category
+  validates_inclusion_of  :category, in: CATEGORIES
   
-  attr_accessible :type, :description
+  attr_accessible :category, :description
 end
