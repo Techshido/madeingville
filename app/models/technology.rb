@@ -22,7 +22,7 @@ class Technology < ActiveRecord::Base
   
   validates_presence_of :user_id, :skill
   validates_inclusion_of :skill, in: TECH_STACK
-  validates_uniqueness_of [:user_id, :skill]
+  # validates_uniqueness_of [:user_id, :skill]
   
   attr_accessible :skill, :description
 end
