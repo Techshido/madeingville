@@ -2,16 +2,16 @@
 #
 # Table name: achievements
 #
-#  id          :integer         not null, primary key
-#  hacker_id   :integer
-#  type        :string(255)
-#  description :text
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
+#  id                   :integer         not null, primary key
+#  hacker_id            :integer
+#  achievement_category :string(255)
+#  description          :text
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
 #
 # Indexes
 #
-#  index_achievements_on_type       (type)
+#  index_achievements_on_type       (achievement_category)
 #  index_achievements_on_hacker_id  (hacker_id)
 #
 

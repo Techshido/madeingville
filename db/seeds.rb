@@ -35,18 +35,24 @@ def make_hackers
     User.find_or_initialize_by_email(email).tap do |t|
       t.password = @passwd
       t.password_confirmation = @passwd
-      t.role = :hacker
+      t.role = "hacker"
       t.first_name = @first_names.shuffle.first
       t.last_name = @last_names.shuffle.first
+
+      t.save!
 
       tech = @technologies.shuffle
       achieve = @achievements.shuffle
 
-      t.interests = [ Technology.new(user_id: t.id, type: tech.first),
-                      Technology.new(user_id: t.id, type: tech.second) ]
-      t.achievements = [ Achievement.new(hacker_id: t.id, type: achieve.first),
-                         Achievement.new(hacker_id: t.id, type: achieve.second) ]
-      t.will_work_for = Compensation.new(hacker_id: t.id, type: @compensations.shuffle.first)
+      t.interests.create(skill: tech.first)
+      t.interests.create(skill: tech.second)
+
+      t.achievements.create(achievement_category: achieve.first)
+      t.achievements.create(achievement_category: achieve.second)
+
+      t.create_will_work_for(method: @compensations.shuffle.first)
+
+      t.save!
     end
 
     current = current + 1
@@ -65,11 +71,19 @@ def make_biz_monkies
       t.role = "biz_monkey"
       t.first_name = @first_names.shuffle.first
       t.last_name = @last_names.shuffle.first
-      
+     
+      t.save!
+
       tech = @technologies.shuffle
-      t.looking_for = [ Technology.new(user_id: t.id, type: tech.first),
-                        Technology.new(user_id: t.id, type: tech.second) ]
-      t.projects = [Project.new(biz_monkey_id: t.id, description: "Description of an awesome test project")]
+
+      t.looking_for.create(skill: tech.first)
+      t.looking_for.create(skill: tech.second)
+
+
+      t.projects.create(description: "Description of my first awesome test project")
+      t.projects.create(description: "Description of my second awesome test project")
+
+      t.save!
     end
   end
   current = current + 1
