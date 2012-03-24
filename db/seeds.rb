@@ -18,8 +18,8 @@
 @passwd = "foobar"
 @email_suffix = "@test.com"
 
-@technologies = %w[web_dev ios android]
-@achievements = %w[internship open_source real_world contest published_paper class]
+@technologies = %w[web_application web_front_end ios android graphic_design]
+@achievements = Achievement::CATEGORIES
 @compensations = %w[cash experience equity]
 
 @first_names = %w[paul ringo john george bob mike joe chris]
@@ -46,8 +46,8 @@ def make_hackers
       t.interests.create(skill: tech.first)
       t.interests.create(skill: tech.second)
 
-      t.achievements.create(achievement_category: achieve.first)
-      t.achievements.create(achievement_category: achieve.second)
+      t.achievements.create(category: achieve.first)
+      t.achievements.create(category: achieve.second)
 
       t.create_will_work_for(method: @compensations.shuffle.first)
 
@@ -77,8 +77,8 @@ def make_biz_monkies
       t.looking_for.create(skill: tech.second)
 
 
-      t.projects.create(description: "Description of my first awesome test project")
-      t.projects.create(description: "Description of my second awesome test project")
+      t.projects.create(name: "first proj", description: "Description of my first awesome test project")
+      t.projects.create(name: "next proj", description: "Description of my second awesome test project")
 
       t.save!
     end
