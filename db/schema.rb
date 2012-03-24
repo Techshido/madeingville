@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324173437) do
+ActiveRecord::Schema.define(:version => 20120324192439) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "hacker_id"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120324173437) do
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
     t.integer  "hacker_score",           :default => 0
+    t.boolean  "contact_me"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
