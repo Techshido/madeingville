@@ -60,5 +60,13 @@ class User < ActiveRecord::Base
     end
   end
   
-  
+  def calculate_hacker_score
+    #TODO: write this!
+    0
+  end 
+
+  def calculate_hacker_rate
+    #TODO: write this!
+    0
+  end
 end
