@@ -28,6 +28,7 @@
 class User < ActiveRecord::Base
   # Hacker Relationships
   has_many :interests, class_name: 'Technology', dependent: :destroy
+  has_many :achievements, foreign_key: 'hacker_id', dependent: :destroy
   
   # Biz Monkey Relationships
   has_many :looking_for, class_name: 'Technology', dependent: :destroy

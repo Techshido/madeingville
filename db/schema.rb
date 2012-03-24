@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324163205) do
+ActiveRecord::Schema.define(:version => 20120324164934) do
+
+  create_table "achievements", :force => true do |t|
+    t.integer  "hacker_id"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "achievements", ["hacker_id"], :name => "index_achievements_on_hacker_id"
+  add_index "achievements", ["type"], :name => "index_achievements_on_type"
 
   create_table "technologies", :force => true do |t|
     t.integer  "user_id"
