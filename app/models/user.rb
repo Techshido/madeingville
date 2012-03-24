@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 
   # Biz Monkey Relationships
   has_many :looking_for, class_name: 'Technology', dependent: :destroy
+  has_many :projects, foreign_key: 'biz_monkey_id', dependent: :destroy
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

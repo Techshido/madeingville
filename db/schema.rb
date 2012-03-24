@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324172322) do
+ActiveRecord::Schema.define(:version => 20120324173437) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "hacker_id"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20120324172322) do
   end
 
   add_index "compensations", ["hacker_id"], :name => "index_compensations_on_hacker_id"
+
+  create_table "projects", :force => true do |t|
+    t.integer  "biz_monkey_id"
+    t.text     "description"
+    t.string   "website"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "projects", ["biz_monkey_id"], :name => "index_projects_on_biz_monkey_id"
 
   create_table "technologies", :force => true do |t|
     t.integer  "user_id"
