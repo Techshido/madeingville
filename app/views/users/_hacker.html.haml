@@ -1,0 +1,8 @@
+%p Hacker: #{@user.first_name} #{@user.last_name} #{@user.email}
+%p 
+  -@interests.each do |skill|
+    #{skill.skill} #{skill.description}
+  -@achievements.each do |achievement|
+    #{achievement.category} #{achievement.description}
+  
+%p Will work for #{@will_work_for.method}
