@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324205615) do
+ActiveRecord::Schema.define(:version => 20120324211905) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "hacker_id"
-    t.string   "achievement_category"
+    t.string   "category"
     t.text     "description"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  add_index "achievements", ["achievement_category"], :name => "index_achievements_on_type"
+  add_index "achievements", ["category"], :name => "index_achievements_on_type"
   add_index "achievements", ["hacker_id"], :name => "index_achievements_on_hacker_id"
 
   create_table "compensations", :force => true do |t|
