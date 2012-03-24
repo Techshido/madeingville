@@ -2,7 +2,11 @@ Madeingville::Application.routes.draw do
   
   devise_for :users
 
-  # root to: 'whats_hot#show'
+  root to: 'pages#home'
+  
+  match 'about' => 'pages#about'
+  match 'biz_monkeys' => 'pages#biz_monkey_list'
+  match 'hackers' => 'pages#hacker_list'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -51,9 +55,6 @@ Madeingville::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,22 @@
+%header.well
+  #flash-message
+    -flash.each do |key, value|
+      -key = "error" if key == :warning || key == :alert
+      -key = "info" if key == :notice
+      .alert.fade.in{class: "alert-#{key}"}
+        =link_to '#', class: "close", data: {dismiss: 'alert'} do
+          %i.icon-remove
+        =value
+  
+  -if user_signed_in?
+    %nav#app-links.pull-right
+      Hello, #{current_user.first_name}!
+      = " | "
+      = link_to edit_user_registration_path(current_user) do
+        %span#zoink
+          %i.icon-user.icon-white
+        Edit Profile
+      = " | "
+      = link_to destroy_user_session_path, method: :delete do
+        %i.icon-off
+        Sign Out

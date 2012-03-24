@@ -20,4 +20,6 @@ class Compensation < ActiveRecord::Base
   
   validates_presence_of   :hacker_id, :type
   validates_inclusion_of  :type, in: PAYMENT_METHODS
+  
+  attr_accessible :type
 end

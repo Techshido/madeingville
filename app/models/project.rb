@@ -8,6 +8,7 @@
 #  website       :string(255)
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
+#  name          :string(255)
 #
 # Indexes
 #
@@ -16,8 +17,8 @@
 
 class Project < ActiveRecord::Base
   belongs_to :biz_monkey, class_name: 'User'
+    
+  validates_presence_of   :biz_monkey_id, :description, :name
   
-  attr_accessible :website, :description  
-
-  validates_presence_of   :biz_monkey_id, :description
+  attr_accessible :website, :description, :name
 end
