@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324192439) do
+ActiveRecord::Schema.define(:version => 20120324194704) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "hacker_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120324192439) do
     t.string   "website"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "name"
   end
 
   add_index "projects", ["biz_monkey_id"], :name => "index_projects_on_biz_monkey_id"
