@@ -1,1 +1,12 @@
-hey - homey
+-if user_signed_in?
+  %p
+    =link_to "My Profile", current_user
+-else
+  = link_to "Sign in", new_user_session_path
+
+%p 
+  =link_to "Hackers", hackers_path
+%p 
+  =link_to "Startups", biz_monkeys_path
+%p
+  =link_to "About", about_path
