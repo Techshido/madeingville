@@ -57,7 +57,7 @@ def make_hackers
 end
 
 # Make the BMs
-def make_biz_monkies
+def make_biz_monkeys
   30.times do |current|
 
     email = "bizmonkey#{current}#{@email_suffix}"
@@ -88,5 +88,5 @@ end
 namespace :db do 
   User.destroy_all
   make_hackers
-  make_biz_monkies
+  make_biz_monkeys
 end
