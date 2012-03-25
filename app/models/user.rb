@@ -19,7 +19,7 @@
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #  hacker_score           :integer         default(0)
-#  contact_me             :boolean
+#  contact_me             :boolean         default(FALSE)
 #
 # Indexes
 #
