@@ -1,8 +1,13 @@
 %p Hacker: #{@user.first_name} #{@user.last_name} #{@user.email}
 %p 
+  %h2 Interests:
   -@interests.each do |skill|
-    #{skill.skill} #{skill.description}
+    #{skill.skill.titleize} : #{skill.description}
+    %br
+%p
+  %h2 Achievements:
   -@achievements.each do |achievement|
-    #{achievement.category} #{achievement.description}
+    #{achievement.category} : #{achievement.description}
+    %br
   
 %p Will work for #{@will_work_for.method}

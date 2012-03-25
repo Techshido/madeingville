@@ -1,5 +1,9 @@
 -if @user == current_user
-  =render 'my_profile'
+  -if @user.is_hacker?
+    =render 'users/profile/hacker'
+  -elsif @user.is_biz_monkey?
+    =render 'users/profile/biz_monkey'
+    
 -elsif @user.is_hacker?
   =render 'hacker'
 -elsif @user.is_biz_monkey?

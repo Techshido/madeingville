@@ -1,0 +1,19 @@
+%p
+  =link_to "Home", root_path
+  
+/ %h1 Add New Achievement
+/ =simple_form_for @user do |f|
+/   =f.simple_fields_for @achievement do |a|
+/     =a.input :category
+/     =a.input :description
+/   =f.button :submit
+/ 
+
+%h1 Existing Achieves
+=simple_form_for @user do |f|
+  =f.simple_fields_for :achievements do |a|
+    =a.input :category, collection: Achievement::CATEGORIES, label_method: :titleize
+    =a.input :description
+  =f.button :submit
+
+  

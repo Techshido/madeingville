@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   # Hacker Relationships
   has_many :interests, class_name: 'Technology', dependent: :destroy
   has_many :achievements, foreign_key: 'hacker_id', dependent: :destroy
+  accepts_nested_attributes_for :achievements
   has_one  :will_work_for, class_name: 'Compensation', foreign_key: 'hacker_id', dependent: :destroy
 
   # Biz Monkey Relationships
@@ -43,7 +44,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :first_name, :last_name, :score, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :first_name, :last_name, :score, :password, :password_confirmation, :remember_me, :achievements_attributes
   validates       :first_name, :last_name, presence: true, length: { maximum: 50 }
   
   ROLES = %W[hacker biz_monkey legit_startup]
